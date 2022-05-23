@@ -1,0 +1,14 @@
+.container {
+  margin: auto;
+  padding: 0 1rem;
+  max-width: 77.5rem;
+}
+
+.main {
+  margin: 2rem 0;
+}
+
+.footer {
+  margin: 2rem 0;
+  font-size: 0.75rem;
+}
