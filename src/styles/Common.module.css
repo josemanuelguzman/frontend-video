@@ -1,7 +1,54 @@
+/**
+ * Headings
+ */
 .title {
-  color: #000082;
-  font-size: 3.25rem;
-  font-weight: 600;
+  line-height: 1.2em;
   letter-spacing: -0.0938rem;
-  line-height: 3.875rem;
+  font-weight: 600;
+  font-size: 1.75rem;
+  color: #000082;
+}
+
+@media screen and (min-width: 48rem) {
+  .title {
+    font-size: 2.625rem;
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  .title {
+    font-size: 3.25rem;
+  }
+}
+
+/**
+ * Section (video list)
+ */
+.section {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  margin: 2rem 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 48rem) {
+  .section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  .section {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/**
+ * Articles (Video)
+ */
+.article {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  list-style-type: none;
 }

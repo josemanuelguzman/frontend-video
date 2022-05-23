@@ -5,14 +5,14 @@ import Video from "../components/Video";
 import BaseLayout from "../components/Layout/BaseLayout";
 import { VideoObject } from "../types/Video";
 
-export default function Home({ videos }: { videos: Array<VideoObject> }) {
+const Home = ({ videos }: { videos: Array<VideoObject> }) => {
   return (
     <>
       <h1 className={styles.title}>Your daily video summary 😍</h1>
 
-      <section className={styles.list}>
+      <section className={styles.section}>
         {videos.map((video) => (
-          <article key={video.attributes.slug} className={styles.listItem}>
+          <article key={video.attributes.slug} className={styles.article}>
             <Video
               poster={video.attributes.poster}
               src={video.attributes.url}
@@ -25,7 +25,11 @@ export default function Home({ videos }: { videos: Array<VideoObject> }) {
       </section>
     </>
   );
-}
+};
+
+Home.getLayout = function getLayout(page: React.ReactNode) {
+  return <BaseLayout>{page}</BaseLayout>;
+};
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await axiosGet<{
@@ -38,6 +42,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-Home.getLayout = function getLayout(page: React.ReactNode) {
-  return <BaseLayout>{page}</BaseLayout>;
-};
+export default Home;
