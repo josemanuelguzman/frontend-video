@@ -1,10 +1,10 @@
-import BaseLayout from "../../components/Layout/BaseLayout";
+import BaseLayout from "../../../components/Layout/BaseLayout";
 import React from "react";
-import Video from "../../components/Video";
-import styles from "../../styles/Common.module.css";
+import Video from "../../../components/Video";
+import styles from "../../../styles/Common.module.css";
 import { GetServerSideProps } from "next";
-import { VideoObject } from "../../types/Video";
-import { axiosGet } from "../../utils/axios";
+import { VideoObject } from "../../../types/Video";
+import { axiosGet } from "../../../utils/axios";
 
 const VideoPage = ({ video }: { video: VideoObject }) => {
   return (

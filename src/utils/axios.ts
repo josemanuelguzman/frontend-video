@@ -29,3 +29,22 @@ export async function axiosGet<T>(url: string): Promise<T> {
     throw error;
   }
 }
+
+/**
+ * Axios put helper method
+ *
+ * @param {string} url
+ * @param {object} params
+ */
+export async function axiosPut<T>(url: string, params?: any): Promise<T> {
+  try {
+    const res: AxiosResponse<T> = await axios.put<T>(encodeURI(url), params);
+    return res.data;
+  } catch (error: any) {
+    if (error.response) {
+      throw error.response.data;
+    }
+
+    throw error;
+  }
+}
