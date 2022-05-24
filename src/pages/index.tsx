@@ -4,6 +4,7 @@ import styles from "../styles/Common.module.css";
 import Video from "../components/Video";
 import BaseLayout from "../components/Layout/BaseLayout";
 import { VideoObject } from "../types/Video";
+import Link from "next/link";
 
 const Home = ({ videos }: { videos: Array<VideoObject> }) => {
   return (
@@ -13,13 +14,21 @@ const Home = ({ videos }: { videos: Array<VideoObject> }) => {
       <section className={styles.section}>
         {videos.map((video) => (
           <article key={video.attributes.slug} className={styles.article}>
-            <Video
-              poster={video.attributes.poster}
-              src={video.attributes.url}
-              autoPlay
-              loop
-              muted
-            />
+            <Link
+              passHref
+              href="/videos/[slug]"
+              as={`/videos/${video.attributes.slug}`}
+            >
+              <a>
+                <Video
+                  poster={video.attributes.poster}
+                  src={video.attributes.url}
+                  autoPlay
+                  loop
+                  muted
+                />
+              </a>
+            </Link>
           </article>
         ))}
       </section>
